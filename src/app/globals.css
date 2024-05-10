@@ -48,3 +48,25 @@ body {
 ::-webkit-scrollbar-thumb:hover{
   background: #555;
 }
+
+.message-box {
+  max-width: 70%;
+  background-color: #4a4444;
+  border-radius: 12px;
+  padding: 10px 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user .message-box {
+  background-color: #00b0f0;
+  color: #292929;
+}
+
+.bot .message-box {
+  background-color: #e0e0e0;
+}
+
+.message-content {
+  word-wrap: break-word;
+}
+

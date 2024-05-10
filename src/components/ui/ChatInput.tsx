@@ -21,17 +21,28 @@ function ChatInput() {
   };
 
   const handleSendClick = () => {
+    sendMessage();
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // Prevent form submission
+      sendMessage();
+    }
+  };
+
+  const sendMessage = () => {
     if (input.trim() !== "") {
       setChatLog([...chatLog, { type: Type.User, message: input.trim() }]);
       setInput("");
     }
   };
 
+
   return (
     <div>
       <form className="flex items-center justify-center w-full space-x-2">
         <div className="relative">
-          {/* Display the alert if file is not uploaded and input field is hovered */}
           {!isUploaded && isHovered && (
             <Alert
               type={AlertType.warning}
@@ -49,6 +60,7 @@ function ChatInput() {
             onChange={(e) => setInput(e.target.value)}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            onKeyPress={handleKeyPress}
           />
 
           {!isUploaded && (
